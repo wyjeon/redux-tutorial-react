@@ -17,7 +17,7 @@ class CounterContainer extends Component {
         color={color}
         value={number}
         onIncrement={this.handleIncrement}
-        onDecrement={this.handleDecrements}
+        onDecrement={this.handleDecrement}
       />
     );
   }
