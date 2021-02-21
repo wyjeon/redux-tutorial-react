@@ -8,10 +8,19 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore } from 'redux';
 import rootReducer from './store/modules';
 
+// Provider 불러오기
+import { Provider } from 'react-redux';
+
 // 리덕스 개발자도구 적용하기
 const devTools =
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 const store = createStore(rootReducer, devTools);
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// Provider 렌더링해서 기존의 App 감싸주기
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root')
+);
 registerServiceWorker();
