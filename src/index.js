@@ -4,13 +4,14 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-// 1. createStore와 루트 리듀서 불러오기
+// createStore와 루트 리듀서 불러오기
 import { createStore } from 'redux';
 import rootReducer from './store/modules';
 
-// 2. 스토어 만들고 현재 값 확인 해보기
-const store = createStore(rootReducer);
-console.log(store.getState());
+// 리덕스 개발자도구 적용하기
+const devTools =
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const store = createStore(rootReducer, devTools);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 registerServiceWorker();
